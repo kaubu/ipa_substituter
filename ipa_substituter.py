@@ -22,8 +22,12 @@ with open(ipa_dict_loc, encoding="utf8") as dict_file:
 	ipa_dict = json.load(dict_file)
 
 while True:
+	# Repair the input
+	ipa_input = input(">> ")
+	ipa_input = ipa_input.replace("’", "'") # eng_to_ipa doesn't recognize ’s
+	
 	# Convert the English to IPA
-	converted = ipa.convert(input(">> "))
+	converted = ipa.convert(ipa_input)
 	if debug: print(f"{converted}")
 	
 	# Remove all ' and ˌ from it, stress markings
