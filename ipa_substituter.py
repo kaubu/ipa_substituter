@@ -29,11 +29,11 @@ while True:
 	# Remove all ' and ˌ from it, stress markings
 	converted = converted.replace("ˈ", "")
 	converted = converted.replace("ˌ", "")
-	print(f"IPA: {converted}\n")
+	print(f"\nIPA: {converted}\n")
 
 	# Translate using the JSON file
 	for word, initial in ipa_dict.items():
 		converted = converted.replace(word.lower(), initial)
 	
 	print(f"Converted: {converted}\n")
-	print(f"Capitalized: {sentence_capitalize(converted)}\n\n")
+	print(f"Capitalized: {sentence_capitalize(converted)}\n")
